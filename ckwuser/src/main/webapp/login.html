@@ -1,0 +1,151 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<meta charset="utf-8">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+
+<form id="mainForm" action="Login" method="post">
+<body id=x>
+<br><br>
+
+<center>
+<table class="x1 table-like">
+<thead>
+<tr><th colspan="3" class="x2"><center>ちいかわ会員登録</center></th></tr>
+<tr>
+  <th colspan="2" class="text-center">
+    <button type="button" id="btn-login" class="x4 active" onclick="x()">ログイン</button>
+    <button type="button" id="btn-signup" class="x4" onclick="y()">新規登録</button>
+  </th>
+</tr>
+</thead>
+<tbody id="ログイン" style="display:none;">
+<tr><th>メールアカウント</th><td><input type="email" class="xx" name="login_email"></td></tr>
+<tr><th>パスワード</th><td><input type="password" class="xx" name="login_password"></td></tr>
+<tr><th colspan="2"><center><input type="button" value="会員ログイン" class="x4" id="login"></center></th></td>
+</tbody>
+<tbody id="新規登録" style="display:none;">
+<tr><th>セイ(姓)</th><td><input type="button" value="必须" class="x3" ><input type="text" class="xx" id="firstName" name="firstName"></td></tr>
+<tr><th>メイ(名)</th><td><input type="button" value="必须" class="x3"><input type="text" class="xx" id="lastName" name="lastName"></td></tr>
+<tr><th>メールアカウント</th><td><input type="button" value="必须" class="x3"><input type="email" class="xx" id="email" name="email"></td></tr>
+<tr><th>パスワード</th><td><input type="button" value="必须" class="x3"><input type="password" class="xx" id="password" name="password"></td></tr>
+<tr><th colspan="2"><center><input type="button" value="新規登録" class="x4" id="add"></center></th></td>
+</tbody>
+</table>
+</center>
+<div class="result"></div>
+
+
+<input type="hidden" value="" id="loginFlag" name="loginFlag">
+</body>
+<script type="text/javascript">
+  $(function(){
+
+            $('#add').on('click',function(){
+            	document.getElementById("loginFlag").value = "1";
+                document.getElementById("mainForm").submit();
+            });
+            $('#login').on('click',function(){
+            	document.getElementById("loginFlag").value = "2";
+                document.getElementById("mainForm").submit();
+            });
+        });
+  // $(function(){
+
+  //           $('#new').on('click',function(){
+  //               $.ajax({
+  //                   url:'./login.php',
+  //                   type:'POST',
+  //                   data:{
+  //                   	  'firstName':$('#firstName').val(),
+  //                       'lastName':$('#lastName').val(),
+  //                       'email':$('#email').val(),
+  //                       'password':$('#password').val()
+
+  //                   }
+  //               })
+  //               // Ajaxリクエストが成功した時発動
+  //               .done( (data) => {
+  //                   $('.result').html(data);
+  //                   console.log(data);
+  //               })
+  //               // Ajaxリクエストが失敗した時発動
+  //               .fail( (data) => {
+  //                   $('.result').html(data);
+  //                   console.log(data);
+  //               })
+  //               // Ajaxリクエストが成功・失敗どちらでも発動
+  //               .always( (data) => {
+  //               	console.log("送信しました。");
+  //               });
+  //           });
+  //       });
+
+	function x(){
+	document.getElementById("ログイン").style.display= "block";
+	document.getElementById("新規登録").style.display= "none";
+}
+function y(){
+	document.getElementById("ログイン").style.display= "none";
+	document.getElementById("新規登録").style.display= "block";
+}
+</script>
+</form>
+
+
+
+
+<style> 
+
+#x{
+	background-image: url(chiikawa.jpeg);
+	background-size:auto 100%;
+	background-repeat: no-repeat;
+	background-position:right top;
+}
+table.x1 {
+    border-collapse: separate;
+    border-spacing: 0 12px; 
+ }
+
+.x1{
+	background-color: white;
+	opacity: 0.7;
+
+	background-color:rgba(255, 255, 255, 0.3);
+	width:40%;
+	height:600px;
+	border-radius: 50px;
+}
+.x2{
+	font-weight: bold;
+	font-size:200%;
+	color: black;
+
+}
+
+.x3{ 
+	width:40px;
+	border-radius:7px;
+    background-color: red;
+    opacity: 1;              
+    padding:3px;
+
+}
+
+.x4{
+	font-weight: bold;
+	color:black;
+	border:none;
+	width: 100px;
+	padding:8px;              
+	margin:8px;                    
+	border-radius:7px;        
+}
+
+.xx{
+	width:250px;
+	height:30px;
+	border-radius:7px;
+}
+
+</style>
+

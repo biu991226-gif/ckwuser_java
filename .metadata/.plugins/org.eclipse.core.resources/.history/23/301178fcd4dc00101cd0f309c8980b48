@@ -1,0 +1,116 @@
+package ckwuser;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class Login
+ */
+public class Login extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public Login() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		String flag = request.getParameter("loginFlag");
+		
+		String firstname = "";
+		String lastname = "";
+		String email = "";
+		String password = "";
+
+		if("1".equals(flag)){
+			// 新規登録
+			firstname = request.getParameter("firstName");
+			lastname = request.getParameter("lastName");
+			email = request.getParameter("email");
+		    password = request.getParameter("password");
+
+
+//		$link = mysqli_connect("mysql3101.db.sakura.ne.jp", "mzx991226_zhixin", "mzx991226", "mzx991226_zhixin");
+//
+//		$sql ="INSERT INTO `users`(`firstName`,`lastName`,`email`, `password`) VALUES ('$firstname','$lastname','$email','$password ')";
+//		$res = mysqli_query($link, $sql);
+//
+//
+//		echo "注册成功";
+//		echo "<a href='login.html'>登录</a>";
+		    
+		    response.setContentType("text/html; charset=UTF-8");
+		    String res = "";
+		    
+		   res = "注册成功" + "<a href='login.html'>登录</a>";
+
+		    
+
+		    response.getWriter().append(res);
+
+
+
+		} else {
+			// login
+			email = request.getParameter("email");
+		    password = request.getParameter("password");
+
+
+//
+//		$link = mysqli_connect("mysql3101.db.sakura.ne.jp", "mzx991226_zhixin", "mzx991226", "mzx991226_zhixin");
+//
+//		$sql ="SELECT email, password FROM `users` 
+//		WHERE 
+//		email='$email' and password='$password'";
+//		$res = mysqli_query($link, $sql);
+//
+//		if($res->num_rows==0){
+//
+//		echo "这个用户不存在！".$sql;
+//		}else{ 
+//		$_SESSION["email"]= $email;
+//		echo "登录成功";
+//		echo "<a href='my.php'>自己的信息</a>";
+//		}
+		}
+		
+		String msg = "";
+		Connection conn = null;
+		String url = "jdbc:mysql: //localhost/jdbctestdb";
+		String user = "testuser";
+		String passwords = "testpass";
+		try {
+		    Class.forName("com.mysql.jdbc.Driver").newInstance();
+		    conn = DriverManager.getConnection(url, user, passwords);
+		    msg = "ドライバのロードに成功しました";
+		} catch (Exception e) {
+			e.printStackTrace();
+		    msg = "ドライバのロードに失敗しました2";
+		}
+
+
+		response.getWriter().append("test ").append(firstname+lastname+email+password).append(msg);
+	}
+
+}
