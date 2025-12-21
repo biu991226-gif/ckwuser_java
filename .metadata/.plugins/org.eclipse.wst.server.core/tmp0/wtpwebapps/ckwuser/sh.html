@@ -2,73 +2,46 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body id="x">
+<title>添加好友</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="sh.js"></script>
-<a href="my.html">my</a>
+<link rel="stylesheet" href="common.css">
+</head>
+<body id="x">
+
+<a href="my.html">myPage</a>
 <a href="sh.html">検索</a>
 <a href="frends.html">友達一覧</a>
 <a href="peng.html">朋友圈</a><br>
 <br><br>
 
 <center>
-<table class="x1 table-like">
-<thead>
-<tr><th  colspan="3" class="x2"><center>添加朋友</center></th></tr>
-</thead>
+  <table class="x1 table-like">
+    <thead>
+      <tr>
+        <th colspan="2" class="x2"><center>添加朋友</center></th>
+      </tr>
+    </thead>
 
-<center>
-<tbody>
-<tr><th>メールアカウント</th><td><input type="email" class="xx" id="email" name="email"><input type="button" value="搜索" class="x4" id="sh"></td></tr>
-</tbody>
+    <tbody>
+      <tr>
+        <th>メールアカウント</th>
+        <td>
+          <input type="email" class="xx" id="email" name="email">
+          <input type="button" value="搜索" class="x4" id="sh">
+        </td>
+      </tr>
+
+      <tr>
+        <th>结果</th>
+        <td>
+          <span id="res" class="resbox"></span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </center>
 
-<hr>
-结果：
-<span id="res"></span>
-
-</table>
-</center>
 </br></br>
 </body>
-
-<style>
-#x{
-	background-image: url(chiikawa.jpeg);
-	background-size:auto 100%;
-	background-repeat: no-repeat;
-	background-position:right top;
-}
-table.x1 {
-    border-collapse: separate;
-    border-spacing: 0 12px; 
- }
-
- .x2{
-	font-weight: bold;
-	font-size:200%;
-	color: black;
-
-}
-
- .x4{
-	font-weight: bold;
-	color:black;
-	border:none;
-	width: 100px;
-	padding:8px;              
-	margin:8px;                    
-	border-radius:7px;        
-}
-
- .xx{
-	width:250px;
-	height:30px;
-	border-radius:7px;
-}
-
-
-</style>
 </html>

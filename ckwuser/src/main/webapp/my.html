@@ -2,26 +2,122 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>MyPage</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="my.js"></script>
+<link rel="stylesheet" href="common.css">
 </head>
-<body>
-<a href="my.html">my</a>
-<a href="sh.html">検索</a>
-<a href="frends.html">友達一覧</a>
-<a href="peng.html">朋友圈</a>
-<br>
-<hr><br>
-我的信息
+<body id="x">
+  <a href="my.html">myPage</a>
+  <a href="sh.html">検索</a>
+  <a href="frends.html">友達一覧</a>
+  <a href="peng.html">朋友圈</a>
+  <a href="login.html">首页</a>
+  <br>
+  <hr><br>
 
-信箱
-<input type="email" id="email" value="">
-密码
-<input type="password" id="password" value="">
+  <center>
+    <table class="x1 table-like">
+      <thead>
+        <tr>
+          <th colspan="2" class="x2"><center>我的信息</center></th>
+        </tr>
+      </thead>
 
-<input type="submit" value="保存" id="save" onclick="save()">
+      <tbody>
+        <tr>
+          <th class="lbl">信箱</th>
+          <td>
+            <input type="email" id="email" class="xx" value="">
+          </td>
+        </tr>
 
-<span id="res"></span>
+        <tr>
+          <th class="lbl">密码</th>
+          <td>
+            <input type="password" id="password" class="xx" value="">
+          </td>
+        </tr>
+
+        <tr>
+          <th class="lbl"></th>
+          <td>
+            <input type="button" value="保存" class="x4" id="save" onclick="save()">
+            <span id="res" class="resbox"></span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </center>
+
+  <style>
+    /* 背景图（如果你这个页面也要） */
+    #x{
+      background-image: url(chiikawa.jpeg);
+      background-size:auto 100%;
+      background-repeat: no-repeat;
+      background-position:right top;
+    }
+
+    table.x1{
+      border-collapse: separate;
+      border-spacing: 0 12px;
+    }
+
+    /* 维持你原来的卡片感（如果 common.css 里已有 x1 可删这段） */
+    .x1{
+      background-color: rgba(255, 255, 255, 0.3);
+      width: 40%;
+      border-radius: 50px;
+      padding: 20px 30px;
+    }
+
+    .x2{
+      font-weight: bold;
+      font-size: 200%;
+      color: black;
+    }
+
+    .x4{
+      font-weight: bold;
+      color: black;
+      border: none;
+      width: 100px;
+      padding: 8px;
+      margin: 8px;
+      border-radius: 7px;
+    }
+
+    .xx{
+      width: 250px;
+      height: 30px;
+      border-radius: 7px;
+    }
+
+    /* 关键：左侧标题不竖排、对齐一致 */
+    .lbl{
+      white-space: nowrap;
+	  text-align: right;
+	  padding-right: 14px;
+	  font-weight: bold;   /* 加粗 */
+	  color: #000;         /* 纯黑 */
+	  vertical-align: middle;
+    }
+
+    /* 结果提示：轻微底色，保持原风格 */
+    .resbox{
+      display: inline-block;
+      margin-left: 8px;
+      padding: 6px 10px;
+      border-radius: 7px;
+      background: rgba(255,255,255,0.7);
+      min-height: 18px;
+    }
+  </style>
 </body>
+
+
+</body>
+
+
 </html>

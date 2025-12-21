@@ -5,14 +5,67 @@
 <title>发朋友圈</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="addpeng.js"></script>
+<link rel="stylesheet" href="common.css">
+<style>
+/* 左侧标题不竖排 */
+th{
+  white-space: nowrap;
+  text-align: right;
+  padding-right: 14px;
+  vertical-align: top;
+}
+
+/* 朋友圈内容输入框 */
+.peng-text{
+  width: 420px;
+  height: 160px;          /* 比普通输入框大，像内容发布 */
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #999;
+  resize: none;           /* 不允许拉伸，保持整齐 */
+  background: rgba(255,255,255,0.7);
+  line-height: 1.6;
+}
+
+/* 结果提示 */
+#res{
+  margin-left: 12px;
+}
+
+</style>
 </head>
-<a href="my.html">my</a>
+<body>
+<a href="my.html">myPage</a>
 <a href="sh.html">検索</a>
 <a href="frends.html">友達一覧</a>
 <a href="peng.html">朋友圈</a><br>
-content:<br>
-<textarea id="content"></textarea>
-
 <br>
-<button id="addpeng">发布</button>
-<span id="res"></span>
+
+<center>
+  <table class="x1 table-like">
+    <thead>
+      <tr>
+        <th colspan="2" class="x2"><center>发布朋友圈</center></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <th>内容</th>
+        <td>
+          <textarea id="content" class="peng-text"></textarea>
+        </td>
+      </tr>
+
+      <tr>
+        <th></th>
+        <td>
+          <input type="button" value="发布" class="x4" id="addpeng">
+          <span id="res"></span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</center>
+</body>
+</html>

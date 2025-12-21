@@ -1,0 +1,158 @@
+html, body{
+  height: 100%;
+}
+
+body{
+  background:
+    linear-gradient(180deg, rgba(245,245,245,1), rgba(255,255,255,1)),
+    url("chiikawa.jpeg");
+
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: cover;
+
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans",
+               "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+  margin: 0;
+  padding: 24px;
+  line-height: 1.6;
+}
+
+body{
+  background-image: url("chiikawa.jpeg");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: cover;
+}
+
+
+
+  /* 顶部导航 */
+  body > a{
+    display: inline-block;
+    text-decoration: none;
+    color: #111;
+    background: rgba(255,255,255,0.7);
+    border: 1px solid rgba(0,0,0,0.08);
+    padding: 8px 12px;
+    border-radius: 10px;
+    margin: 0 8px 12px 0;
+    transition: transform .05s ease, background .15s ease;
+  }
+  body > a:hover{
+    background: rgba(255,255,255,0.9);
+  }
+  body > a:active{
+    transform: translateY(1px);
+  }
+
+  /* 分隔线更柔和 */
+  hr{
+    border: none;
+    border-top: 1px solid rgba(0,0,0,0.08);
+    margin: 14px 0 18px;
+  }
+
+  /* “我的信息”标题（你现在是纯文本，所以用伪选择器包不住，只能靠整体布局改善） */
+
+  /* 把“信箱/密码/按钮/结果”当成卡片区域来布局
+     利用：email 输入框作为锚点，给它和后面的元素统一样式 */
+  #email, #password{
+    width: min(420px, 90vw);
+    height: 40px;
+    padding: 0 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,0.15);
+    background: rgba(255,255,255,0.85);
+    outline: none;
+    margin: 8px 0 18px 0;
+    display: block; /* 让输入框换行并对齐 */
+  }
+  #email:focus, #password:focus{
+    border-color: rgba(0,0,0,0.35);
+    background: rgba(255,255,255,0.95);
+  }
+
+  /* 保存按钮 */
+  #save{
+    appearance: none;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 12px;
+    background: rgba(0,0,0,0.85);
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform .05s ease, opacity .15s ease;
+  }
+  #save:hover{ opacity: .92; }
+  #save:active{ transform: translateY(1px); }
+
+  /* 结果提示 */
+  #res{
+    display: inline-block;
+    margin-left: 12px;
+    padding: 8px 12px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.7);
+    border: 1px solid rgba(0,0,0,0.08);
+    vertical-align: middle;
+    min-height: 18px;
+  }
+
+  #x{
+  background-image: url(chiikawa.jpeg);
+  background-size:auto 100%;
+  background-repeat: no-repeat;
+  background-position:right top;
+}
+table.x1{
+  border-collapse: separate;
+  border-spacing: 0 12px;
+}
+
+/* 你原来的风格 */
+.x1{
+  background-color: white;
+  opacity: 0.7;
+  background-color: rgba(255, 255, 255, 0.3);
+  width: 40%;
+  border-radius: 50px;
+  padding: 20px 30px; /* 只加一点内边距，保持原味 */
+}
+
+.x2{
+  font-weight: bold;
+  font-size: 200%;
+  color: black;
+}
+
+.x4{
+  font-weight: bold;
+  color: black;
+  border: none;
+  width: 100px;
+  padding: 8px;
+  margin: 8px;
+  border-radius: 7px;
+}
+
+.xx{
+  width: 250px;
+  height: 30px;
+  border-radius: 7px;
+}
+
+/* 只为“结果”做一点点可读性增强，不动字体风格 */
+.resbox{
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 7px;
+  background: rgba(255,255,255,0.7);
+}
+
+th{
+  white-space: nowrap;   /* 不换行 */
+  width: 140px;          /* 给标题列一个固定宽度 */
+  text-align: right;     /* 和你现在风格一致 */
+}

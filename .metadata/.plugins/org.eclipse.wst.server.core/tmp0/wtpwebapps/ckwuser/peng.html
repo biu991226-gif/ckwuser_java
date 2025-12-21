@@ -5,17 +5,96 @@
 <title>朋友圈一覧</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="peng.js"></script>
+<link rel="stylesheet" href="common.css">
+<style>
+	/* ===== 朋友圈 标题区 ===== */
+.peng-header{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* 标题文字：沿用你 x2 的感觉，但不用表 */
+.peng-title{
+  font-weight: bold;
+  font-size: 200%;
+  color: black;
+}
+
+/* + 按钮：完全复用 x4 风格 */
+/* + 按钮：更明显的添加按钮 */
+.peng-add{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  background: rgba(255, 255, 255, 0.9); /* 明显的浅色背景 */
+  border-radius: 50%;                   /* 圆形，更像“添加” */
+  border: 1px solid rgba(0,0,0,0.2);
+
+  font-size: 22px;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* 悬停时稍微强调 */
+.peng-add:hover{
+  background: rgba(255, 255, 255, 1);
+}
+
+/* 点击时的反馈 */
+.peng-add:active{
+  transform: translateY(1px);
+}
+
+
+/* ===== 朋友圈 结果区域（单纯放大） ===== */
+.peng-result{
+  width: 520px;           /* 明显比以前大 */
+  min-height: 360px;      /* 关键：区域变大 */
+  padding: 14px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.7);
+  overflow-y: auto;
+}
+
+/* res 里如果有 a，一条一行，横向显示 */
+.peng-result a{
+  display: block;
+  white-space: nowrap;
+  color: black;
+  text-decoration: none;
+  margin: 8px 0;
+}
+
+.peng-result a:hover{
+  text-decoration: underline;
+}
+
+</style>
 </head>
 <body>
-<a href="my.html">my</a>
+<a href="my.html">myPage</a>
 <a href="sh.html">検索</a>
 <a href="frends.html">友達一覧</a>
 <a href="peng.html">朋友圈</a>
 <br>
 <hr><br>
-朋友圈一覧
-<a href="addpeng.html">+</a>
+<!-- 标题区 -->
+<div class="peng-header">
+  <span class="peng-title">朋友圈一覧</span>
+  <a href="addpeng.html" class="x4 peng-add">+</a>
+</div>
+
 <hr><br>
-<span id="res"></span>
+
+<!-- 结果显示区 -->
+<div id="res" class="peng-result"></div>
 </body>
 </html>

@@ -5,43 +5,115 @@
 <title>聊天界面</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="message.js"></script>
+<link rel="stylesheet" href="common.css">
 </head>
+<style type="text/css">
+/* 左侧标题不竖排 */
+th{
+  white-space: nowrap;
+  text-align: right;
+  padding-right: 14px;
+  vertical-align: top;
+}
+
+/* 聊天记录区域：明显放大 */
+#history{
+  width: 420px;        /* 比原来 250 大很多 */
+  height: 420px;       /* 聊天主视觉 */
+  padding: 10px;
+  border: 1px solid #999;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.7);
+  overflow-y: auto;
+  line-height: 1.6;
+}
+
+/* 输入框与按钮对齐 */
+#content{
+  width: 300px;
+}
+
+/* 消息之间稍微留空（如果 history 里是 <br> 拼的） */
+#history br{
+  margin-bottom: 6px;
+}
+
+/* 结果提示 */
+#res{
+  margin-top: 6px;
+}
+
+.send-box{
+  display: flex;
+  align-items: center;
+  gap: 10px;              /* 输入框和按钮间距 */
+  width: 100%;
+  max-width: 520px;       /* 和 history 宽度接近，整齐 */
+}
+
+/* 输入框占满剩余空间（聊天输入的感觉） */
+.send-input{
+  flex: 1;                /* 关键：自适应变宽 */
+  min-width: 260px;
+}
+
+/* 发送按钮：强制跟保存/搜索一样的尺寸感 */
+#send.x4{
+  width: 100px;           /* 确保跟你 x4 一致 */
+  margin: 0;              /* 去掉默认 x4 的 margin，避免布局松散 */
+}
 
 
-<a href="my.html">my</a>
+</style>
+
+<body>
+
+<a href="my.html">myPage</a>
 <a href="sh.html">検索</a>
 <a href="frends.html">友達一覧</a>
 <a href="peng.html">朋友圈</a><br>
 <br>
 <hr><br>
 
-聊天界面<br>
-履历：<br>
-<div id="history" >
-	
+<center>
+  <table class="x1 table-like">
+    <thead>
+      <tr>
+        <th colspan="2" class="x2"><center>聊天界面</center></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <!-- 聊天记录 -->
+      <tr>
+        <th>履历</th>
+        <td>
+          <div id="history"></div>
+        </td>
+      </tr>
+
+	<!-- 发送区 -->
+	<tr>
+	  <th>发信</th>
+	  <td>
+	    <div class="send-box">
+	      <input type="text" id="content" class="xx send-input">
+	      <input type="button" value="发送" class="x4" id="send" onclick="send()">
+	    </div>
+	  </td>
+	</tr>
 
 
-</div>
-
-<br>
-
-
-
-发信：
-<input type="text" id="content">
-<button id="send" onclick="send()">发送</button>
-<div id="res" >
-	
-
-
-</div>
-
-<style type="text/css">
-	#history{
-		width: 250px;
-		height: 300px;
-		border: 1px solid blue;
-		overflow: auto
-	}
-</style>
+      <!-- 结果提示 -->
+      <tr>
+        <th></th>
+        <td>
+          <div id="res"></div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</center>
+</body>
+</html>
 
