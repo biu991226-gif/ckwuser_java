@@ -1,4 +1,12 @@
-<meta charset="utf-8">
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="my.js"></script>
+</head>
+<body>
 <a href="my.html">my</a>
 <a href="sh.html">検索</a>
 <a href="frends.html">友達一覧</a>
@@ -6,11 +14,14 @@
 <br>
 <hr><br>
 我的信息
-<form action="ckwuser/My" method="post">
-信箱
-<input type="email" name="email" value="<?php echo $email; ?>">
-密码
-<input type="password" name="password" value="<?php echo $password; ?>">
 
-<input type="submit" value="保存" name="save">
-</form>
+信箱
+<input type="email" id="email" value="">
+密码
+<input type="password" id="password" value="">
+
+<input type="submit" value="保存" id="save" onclick="save()">
+
+<span id="res"></span>
+</body>
+</html>

@@ -3,13 +3,14 @@ package ckwuser;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class Login
@@ -37,92 +38,98 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		String flag = request.getParameter("loginFlag");
-		
-		String firstname = "";
-		String lastname = "";
-		String email = "";
-		String password = "";
-
-		if("1".equals(flag)){
-			// 新規登録
-			firstname = request.getParameter("firstName");
-			lastname = request.getParameter("lastName");
-			email = request.getParameter("email");
-		    password = request.getParameter("password");
-
-
-//		$link = mysqli_connect("mysql3101.db.sakura.ne.jp", "mzx991226_zhixin", "mzx991226", "mzx991226_zhixin");
-//
-//		$sql ="INSERT INTO `users`(`firstName`,`lastName`,`email`, `password`) VALUES ('$firstname','$lastname','$email','$password ')";
-//		$res = mysqli_query($link, $sql);
-//
-//
-//		echo "注册成功";
-//		echo "<a href='login.html'>登录</a>";
-		    
-		    response.setContentType("text/html; charset=UTF-8");
-		    String res = "";
-		    
-		   res = "注册成功" + "<a href='login.html'>登录</a>";
-
-		    
-
-		    response.getWriter().append(res);
-
-
-
-		} else {
-			// login
-			email = request.getParameter("email");
-		    password = request.getParameter("password");
-
-
-//
-//		$link = mysqli_connect("mysql3101.db.sakura.ne.jp", "mzx991226_zhixin", "mzx991226", "mzx991226_zhixin");
-//
-//		$sql ="SELECT email, password FROM `users` 
-//		WHERE 
-//		email='$email' and password='$password'";
-//		$res = mysqli_query($link, $sql);
-//
-//		if($res->num_rows==0){
-//
-//		echo "这个用户不存在！".$sql;
-//		}else{ 
-//		$_SESSION["email"]= $email;
-//		echo "登录成功";
-//		echo "<a href='my.php'>自己的信息</a>";
-//		}
-		}
-		
-		String msg = "";
+		// DB情報
 		Connection conn = null;
 		String url = "jdbc:mysql://localhost:3306/mzx991226_zhixin";
 		String user = "mzx991226_zhixin";
 		String passwords = "mzx991226";
-		String sql = "SELECT * FROM users";
-		PreparedStatement stmt = null;
-		ResultSet rs = null;
+		
+		String msg = "";
+		
+		//user情報
+		String flag = request.getParameter("loginFlag");
+		System.out.println(flag);
+		String firstName = "";
+		String lastName = "";
+		String email = "";
+		String password = "";
+
 
 		try {
 		    Class.forName("com.mysql.jdbc.Driver").newInstance();
-		    
 		    conn = DriverManager.getConnection(url, user, passwords);
-		 // SQL実行準備
-		 			stmt = conn.prepareStatement(sql);
-		 			// 実行結果取得
-		 			rs = stmt.executeQuery();
+		    HttpSession session = request.getSession();
+		    session.setAttribute("email", "");
 		    
-		    msg = "ドライバのロードに成功しました";
+		    if("1".equals(flag)){
+				// 新規登録
+				firstName = request.getParameter("firstName");
+				lastName = request.getParameter("lastName");
+				email = request.getParameter("email");
+			    password = request.getParameter("password");
+
+			    Statement stmt = conn.createStatement();
+			    String sql = "insert into users (firstName,lastName,email,password) values ('" 
+			    + firstName + "', '" + lastName + "', '" + email + "', '" + password + "')";
+			    int num = stmt.executeUpdate(sql);
+//			$link = mysqli_connect("mysql3101.db.sakura.ne.jp", "mzx991226_zhixin", "mzx991226", "mzx991226_zhixin");
+	//
+//			$sql ="INSERT INTO `users`(`firstName`,`lastName`,`email`, `password`) VALUES ('$firstname','$lastname','$email','$password ')";
+//			$res = mysqli_query($link, $sql);
+	//
+	//
+//			echo "注册成功";
+//			echo "<a href='login.html'>登录</a>";
+			    
+			    response.setContentType("text/html; charset=UTF-8");
+			    
+			   msg = "注册成功" + "<a href='login.html'>登录</a>";
+
+			    
+
+
+
+			} else {
+				// login
+				email = request.getParameter("login_email");
+			    password = request.getParameter("login_password");
+			    
+			    Statement stmt = conn.createStatement();
+			    String sql = "SELECT email, password FROM users where email='" + email + "' and password='" + password + "'";
+			    System.out.println(sql);
+			    ResultSet rs = stmt.executeQuery(sql);
+			    
+			    msg = "メールまたはパスワードが不正です";
+			    while (rs.next()) {
+			    	msg = "登录成功 <a href='my.html'>自己的信息</a>";
+			    	session.setAttribute("email", email);
+			    }
+
+
+	//
+//			$link = mysqli_connect("mysql3101.db.sakura.ne.jp", "mzx991226_zhixin", "mzx991226", "mzx991226_zhixin");
+	//
+//			$sql ="SELECT email, password FROM `users` 
+//			WHERE 
+//			email='$email' and password='$password'";
+//			$res = mysqli_query($link, $sql);
+	//
+//			if($res->num_rows==0){
+	//
+//			echo "这个用户不存在！".$sql;
+//			}else{ 
+//			$_SESSION["email"]= $email;
+//			echo "登录成功";
+//			echo "<a href='my.php'>自己的信息</a>";
+//			}
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		    msg = "ドライバのロードに失敗しました2";
+		    msg = "処理失敗しました。";
+		} finally {
+			response.getWriter().append(msg);
 		}
-
-
-		response.getWriter().append("test ").append(firstname+lastname+email+password).append(msg);
+		
 	}
 
 }

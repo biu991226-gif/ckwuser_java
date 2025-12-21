@@ -2,7 +2,7 @@ $(function(){
 		
 
 				$.ajax({
-					url:'./frends.php',
+					url:'/ckwuser/Friends',
 					type:'POST',
 					data:{
 						

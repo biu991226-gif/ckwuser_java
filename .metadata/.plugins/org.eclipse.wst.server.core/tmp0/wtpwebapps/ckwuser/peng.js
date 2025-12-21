@@ -3,7 +3,7 @@ $(function(){
 			
 
 				$.ajax({
-					url:'./peng.php',
+					url:'/ckwuser/Peng',
 					type:'POST',
 					data:{
 						

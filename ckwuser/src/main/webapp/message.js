@@ -1,56 +1,41 @@
 window.onload = function(){
-// ページ読み込み時に実行したい処理
 	getMessages();
 }
-setInterval(function() {
-  // ここに1秒ごとに実行したい処理を記述
-  getMessages();
-}, 1000); // 1000ミリ秒（1秒）ごとに実行
-
-$(function(){
-			// Ajax button click
-			$('#send').on('click',function(){
-
-let url = new URL(window.location.href);
-let params = url.searchParams;
-var to = params.get('email');
-console.log(to);
-				$.ajax({
-					url:'./message.php',
-					type:'POST',
-					data:{
-						'content':$('#content').val(),
-						'to':to
-					}
-				})
-				// Ajaxリクエストが成功した時発動
-				.done( (data) => {
-					getMessages();
-					$('#content').val("");
-				
-				})
-	});	
-				
-		});
-
-
-function getMessages(){
-	let url = new URL(window.location.href);
-let params = url.searchParams;
-var to = params.get('email');
-
-				$.ajax({
-					url:'./getMessages.php',
-					type:'POST',
-					data:{
-						'content':$('#content').val(),
-						'to':to
-					}
-				})
-				// Ajaxリクエストが成功した時発動
-				.done( (data) => {
-					$('#history').html(data);
-				
-				})
 	
-}
+	function send() {
+		let url = new URL(window.location.href);
+		let param = url.searchParams;
+		var to = param.get('email');
+		$.ajax({
+					url:'/ckwuser/Message',
+					type:'POST',
+					data:{
+						'to':to,
+						'content':$('#content').val()
+					}
+				})
+				// Ajaxリクエストが成功した時発動
+				.done( (data) => {
+						$('#res').html(data);
+						$('#content').val('');
+						getMessages();
+				})
+	}
+	
+		function getMessages() {
+		let url = new URL(window.location.href);
+		let param = url.searchParams;
+		var to = param.get('email');
+		$.ajax({
+					url:'/ckwuser/GetMessages',
+					type:'POST',
+					data:{
+						'to':to
+					}
+				})
+				// Ajaxリクエストが成功した時発動
+				.done( (data) => {
+						$('#history').html(data);
+				})
+	}
+				

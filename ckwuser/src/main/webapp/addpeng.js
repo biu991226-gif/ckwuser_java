@@ -3,7 +3,7 @@ $(function(){
 			$('#addpeng').on('click',function(){
 
 				$.ajax({
-					url:'./addpeng.php',
+					url:'/ckwuser/AddPeng',
 					type:'POST',
 					data:{
 						'content':$('#content').val()

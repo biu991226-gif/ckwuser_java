@@ -3,7 +3,7 @@ $(function(){
 			$('#sh').on('click',function(){
 
 				$.ajax({
-					url:'./sh.php',
+					url:'/ckwuser/Sh',
 					type:'POST',
 					data:{
 						'email':$('#email').val()
@@ -21,7 +21,7 @@ $(function(){
 
 function addFriend(){
 				$.ajax({
-					url:'./add_frend.php',
+					url:'/ckwuser/AddFriend',
 					type:'POST',
 					data:{
 						'to':$('#email').val()

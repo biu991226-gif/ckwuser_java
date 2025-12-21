@@ -1,16 +1,23 @@
-<meta charset="utf-8">
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>聊天界面</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="message.js"></script>
+</head>
+
 
 <a href="my.html">my</a>
 <a href="sh.html">検索</a>
 <a href="frends.html">友達一覧</a>
+<a href="peng.html">朋友圈</a><br>
 <br>
 <hr><br>
 
 聊天界面<br>
 履历：<br>
-<div id="history">
+<div id="history" >
 	
 
 
@@ -22,8 +29,12 @@
 
 发信：
 <input type="text" id="content">
-<button id="send">发送</button>
+<button id="send" onclick="send()">发送</button>
+<div id="res" >
+	
 
+
+</div>
 
 <style type="text/css">
 	#history{

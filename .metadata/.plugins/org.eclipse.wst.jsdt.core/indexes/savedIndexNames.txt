@@ -1,7 +1,6 @@
-INDEX VERSION 1.4+/Users/miaozhixin/Desktop/MIAO/zuoye/ckwuser_java2/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
-3991460963.index
-2333781556.index
+INDEX VERSION 1.4+/Users/miaozhixin/Desktop/MIAO/zuoye/ckwuser_java/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+4151751911.index
+3943198899.index
 2050765816.index
-1509014702.index
-4212690430.index
-1257724429.index
+1849878019.index
+2110635910.index

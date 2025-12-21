@@ -11,16 +11,6 @@
   </welcome-file-list>
   <servlet>
     <description></description>
-    <display-name>BaseServlet</display-name>
-    <servlet-name>BaseServlet</servlet-name>
-    <servlet-class>jp.co.ckw.base.BaseServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>BaseServlet</servlet-name>
-    <url-pattern>/BaseServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>Login</display-name>
     <servlet-name>Login</servlet-name>
     <servlet-class>ckwuser.Login</servlet-class>
@@ -29,4 +19,85 @@
     <servlet-name>Login</servlet-name>
     <url-pattern>/Login</url-pattern>
   </servlet-mapping>
+  <servlet>
+  <display-name>My</display-name>
+  <servlet-name>My</servlet-name>
+  <servlet-class>ckwuser.My</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>My</servlet-name>
+  <url-pattern>/My</url-pattern>
+</servlet-mapping>
+  <servlet>
+  <display-name>UpdateMy</display-name>
+  <servlet-name>UpdateMy</servlet-name>
+  <servlet-class>ckwuser.UpdateMy</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>UpdateMy</servlet-name>
+  <url-pattern>/UpdateMy</url-pattern>
+</servlet-mapping>
+  <servlet>
+  <display-name>Sh</display-name>
+  <servlet-name>Sh</servlet-name>
+  <servlet-class>ckwuser.Sh</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>Sh</servlet-name>
+  <url-pattern>/Sh</url-pattern>
+</servlet-mapping>
+  <servlet>
+  <display-name>AddFriend</display-name>
+  <servlet-name>AddFriend</servlet-name>
+  <servlet-class>ckwuser.AddFriend</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>AddFriend</servlet-name>
+  <url-pattern>/AddFriend</url-pattern>
+</servlet-mapping>
+  <servlet>
+  <display-name>Friends</display-name>
+  <servlet-name>Friends</servlet-name>
+  <servlet-class>ckwuser.Friends</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>Friends</servlet-name>
+  <url-pattern>/Friends</url-pattern>
+</servlet-mapping>
+  <servlet>
+  <display-name>Message</display-name>
+  <servlet-name>Message</servlet-name>
+  <servlet-class>ckwuser.Message</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>Message</servlet-name>
+  <url-pattern>/Message</url-pattern>
+</servlet-mapping>
+  <servlet>
+  <display-name>GetMessages</display-name>
+  <servlet-name>GetMessages</servlet-name>
+  <servlet-class>ckwuser.GetMessages</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>GetMessages</servlet-name>
+  <url-pattern>/GetMessages</url-pattern>
+</servlet-mapping>
+  <servlet>
+  <display-name>AddPeng</display-name>
+  <servlet-name>AddPeng</servlet-name>
+  <servlet-class>ckwuser.AddPeng</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>AddPeng</servlet-name>
+  <url-pattern>/AddPeng</url-pattern>
+</servlet-mapping>
+  <servlet>
+  <display-name>Peng</display-name>
+  <servlet-name>Peng</servlet-name>
+  <servlet-class>ckwuser.Peng</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>Peng</servlet-name>
+  <url-pattern>/Peng</url-pattern>
+</servlet-mapping>
 </web-app>
