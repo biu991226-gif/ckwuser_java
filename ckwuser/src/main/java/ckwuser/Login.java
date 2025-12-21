@@ -101,7 +101,28 @@ public class Login extends HttpServlet {
 			    
 			    msg = "メールまたはパスワードが不正です";
 			    while (rs.next()) {
-			    	msg = "登录成功 <a href='my.html'>自己的信息</a>";
+			    	
+			    	msg =
+			    	    "<!DOCTYPE html>" +
+			    	    "<html>" +
+			    	    "<head>" +
+			    	    "<meta charset='UTF-8'>" +
+			    	    "<meta http-equiv='refresh' content='2;url=my.html'>" + // 2秒后跳转
+			    	    "<style>" +
+			    	    "body{font-family:sans-serif;text-align:center;padding-top:100px;}" +
+			    	    ".box{display:inline-block;padding:30px 40px;" +
+			    	    "background:rgba(255,255,255,0.7);" +
+			    	    "border-radius:20px;}" +
+			    	    "</style>" +
+			    	    "</head>" +
+			    	    "<body>" +
+			    	    "<div class='box'>" +
+			    	    "<h2>登录成功</h2>" +
+			    	    "<p>正在跳转到个人页面…</p>" +
+			    	    "<p><a href='my.html'>如果没有跳转，请点击这里</a></p>" +
+			    	    "</div>" +
+			    	    "</body></html>";
+
 			    	session.setAttribute("email", email);
 			    }
 
@@ -127,6 +148,7 @@ public class Login extends HttpServlet {
 			e.printStackTrace();
 		    msg = "処理失敗しました。";
 		} finally {
+			response.setContentType("text/html; charset=UTF-8");
 			response.getWriter().append(msg);
 		}
 		
